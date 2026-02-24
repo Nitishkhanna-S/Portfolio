@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Text Effects & Dark Mode Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .demo-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            transition: all 0.4s ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+        
+        .demo-card h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .demo-card h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .code-snippet {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: left;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- THEME TOGGLE BUTTON -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
+    </button>
+
+    <!-- HERO SECTION -->
+    <section class="demo-section">
+        <h1 class="neon-rainbow" style="font-size: 4rem; margin-bottom: 1rem;">
+            Neon Text Effects
+        </h1>
+        <p class="neon-subtle" style="font-size: 1.5rem;">
+            ✨ Click the moon/sun icon to toggle dark mode ✨
+        </p>
+        
+        <div class="info-box">
+            <h3>🎨 Smooth Dark Mode Transition</h3>
+            <p>All colors, backgrounds, shadows, and borders smoothly transition when switching between light and dark mode. The transition uses a custom cubic-bezier curve for a professional feel.</p>
+            <div class="code-snippet">
+                transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            </div>
+        </div>
+    </section>
+
+    <!-- NEON EFFECTS SHOWCASE -->
+    <section class="demo-section" style="background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1), transparent);">
+        <h2 class="neon-glow" style="font-size: 3rem; margin-bottom: 3rem;">
+            All Neon Effects
+        </h2>
+        
+        <div class="demo-grid">
+            <!-- Neon Blue Glow -->
+            <div class="demo-card tilt-card">
+                <h3>Neon Blue Glow</h3>
+                <h2 class="neon-glow">GLOW</h2>
+                <div class="code-snippet">
+                    class="neon-glow"
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    Flickering blue/cyan glow effect with multiple shadow layers
+                </p>
+            </div>
+
+            <!-- Neon Purple -->
+            <div class="demo-card tilt-card">
+                <h3>Neon Purple</h3>
+                <h2 class="neon-purple">PULSE</h2>
+                <div class="code-snippet">
+                    class="neon-purple"
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    Pulsating purple glow with smooth breathing effect
+                </p>
+            </div>
+
+            <!-- Neon Pink -->
+            <div class="demo-card tilt-card">
+                <h3>Neon Pink</h3>
+                <h2 class="neon-pink">FLICKER</h2>
+                <div class="code-snippet">
+                    class="neon-pink"
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    Pink neon with fast flickering animation
+                </p>
+            </div>
+
+            <!-- Neon Rainbow -->
+            <div class="demo-card tilt-card">
+                <h3>Neon Rainbow</h3>
+                <h2 class="neon-rainbow">RAINBOW</h2>
+                <div class="code-snippet">
+                    class="neon-rainbow"
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    Animated gradient with multi-color glow shifting
+                </p>
+            </div>
+
+            <!-- Neon Outline -->
+            <div class="demo-card tilt-card">
+                <h3>Neon Outline</h3>
+                <h2 class="neon-outline">OUTLINE</h2>
+                <div class="code-snippet">
+                    class="neon-outline"
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    Transparent fill with glowing stroke outline
+                </p>
+            </div>
+
+            <!-- Neon Subtle -->
+            <div class="demo-card tilt-card">
+                <h3>Neon Subtle</h3>
+                <h2 class="neon-subtle">SUBTLE</h2>
+                <div class="code-snippet">
+                    class="neon-subtle"
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    Soft glow effect perfect for body text
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- USAGE EXAMPLES -->
+    <section class="demo-section">
+        <h2 class="neon-glow" style="font-size: 3rem; margin-bottom: 2rem;">
+            How to Use
+        </h2>
+        
+        <div class="glass-card" style="max-width: 900px; text-align: left; padding: 3rem;">
+            <h3 class="neon-purple">Adding Neon Text Effects</h3>
+            <p>Simply add the neon class to any heading or text element:</p>
+            
+            <div class="code-snippet">
+                &lt;h1 class="neon-glow"&gt;Glowing Title&lt;/h1&gt;<br>
+                &lt;h2 class="neon-purple"&gt;Purple Heading&lt;/h2&gt;<br>
+                &lt;h3 class="neon-pink"&gt;Pink Heading&lt;/h3&gt;<br>
+                &lt;p class="neon-subtle"&gt;Subtle glow text&lt;/p&gt;<br>
+                &lt;span class="neon-rainbow"&gt;Rainbow text&lt;/span&gt;<br>
+                &lt;div class="neon-outline"&gt;Outline effect&lt;/div&gt;
+            </div>
+
+            <h3 class="neon-purple" style="margin-top: 2rem;">Dark Mode Toggle</h3>
+            <p>The theme toggle button automatically saves your preference:</p>
+            
+            <div class="code-snippet">
+                &lt;button class="theme-toggle" id="themeToggle"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="moon"&gt;🌙&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="sun"&gt;☀️&lt;/span&gt;<br>
+                &lt;/button&gt;
+            </div>
+
+            <h3 class="neon-purple" style="margin-top: 2rem;">Available Animations</h3>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li><strong>neonFlicker</strong> - Realistic flicker effect</li>
+                <li><strong>neonPulse</strong> - Smooth pulsating glow</li>
+                <li><strong>neonBlink</strong> - Subtle blinking</li>
+                <li><strong>rainbowShift</strong> - Gradient color shift</li>
+            </ul>
+
+            <h3 class="neon-purple" style="margin-top: 2rem;">Customization</h3>
+            <p>Modify the neon colors in CSS variables:</p>
+            
+            <div class="code-snippet">
+                :root {<br>
+                &nbsp;&nbsp;--neon-blue: #00f2fe;<br>
+                &nbsp;&nbsp;--neon-purple: #667eea;<br>
+                &nbsp;&nbsp;--neon-pink: #f093fb;<br>
+                &nbsp;&nbsp;--neon-cyan: #4facfe;<br>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- COMBINATION EXAMPLES -->
+    <section class="demo-section" style="background: radial-gradient(circle at center, rgba(240, 147, 251, 0.1), transparent);">
+        <h2 class="neon-pink" style="font-size: 3rem; margin-bottom: 2rem;">
+            Combining Effects
+        </h2>
+        
+        <div class="flex-container" style="margin-top: 2rem;">
+            <div class="flex-item glass-card tilt-card">
+                <h2 class="neon-glow">Portfolio</h2>
+                <p class="neon-subtle">Showcase your work with glowing titles</p>
+            </div>
+            
+            <div class="flex-item glass-card tilt-card">
+                <h2 class="neon-purple">Services</h2>
+                <p class="neon-subtle">Highlight your offerings with style</p>
+            </div>
+            
+            <div class="flex-item glass-card tilt-card">
+                <h2 class="neon-rainbow">Contact</h2>
+                <p class="neon-subtle">Make your contact section stand out</p>
+            </div>
+        </div>
+        
+        <div class="info-box" style="margin-top: 3rem;">
+            <h3>💡 Pro Tips</h3>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li>Use <strong>neon-glow</strong> for main headings and hero titles</li>
+                <li>Use <strong>neon-subtle</strong> for body text and descriptions</li>
+                <li>Use <strong>neon-rainbow</strong> sparingly for maximum impact</li>
+                <li>Combine with <strong>.tilt-card</strong> for 3D hover effects</li>
+                <li>All effects work seamlessly in both light and dark modes</li>
+                <li>Animations respect <code>prefers-reduced-motion</code> for accessibility</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="demo-section text-center">
+        <h2 class="neon-outline" style="font-size: 3rem;">
+            Ready to Glow? ✨
+        </h2>
+        <p class="neon-subtle" style="font-size: 1.2rem; margin-top: 1rem;">
+            All effects are production-ready and optimized for performance
+        </p>
+        <button class="gradient-button magnetic ripple tap-scale" style="margin-top: 2rem; font-size: 1.1rem; padding: 16px 40px;">
+            Start Building
+        </button>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            themeToggle.classList.add('rotating');
+            body.classList.toggle('dark-mode');
+            
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            setTimeout(() => {
+                themeToggle.classList.remove('rotating');
+            }, 600);
+        });
+
+        // Magnetic button effect
+        document.querySelectorAll('.magnetic').forEach(button => {
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                button.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+
+        // Ripple effect
+        document.querySelectorAll('.ripple').forEach(element => {
+            element.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple-effect');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+</body>
+</html>

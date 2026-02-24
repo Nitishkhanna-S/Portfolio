@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nitish Khanna | Portfolio</title>
+<style>
+/* CSS Variables for Theming */
+:root {
+    --bg-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-color-solid: #f0f4ff;
+    --text-color: #2d3748;
+    --header-bg: #0a192f;
+    --header-text: white;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --card-shadow: rgba(0,0,0,0.1);
+    --card-shadow-hover: rgba(0,0,0,0.2);
+    --skill-bg: #0a192f;
+    --skill-bg-hover: #112240;
+    --accent-color: #0a192f;
+    --nav-bg: rgba(10, 25, 47, 0.95);
+}
+
+body.dark-mode {
+    --bg-color: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    --bg-color-solid: #0f2027;
+    --text-color: #e2e8f0;
+    --header-bg: #1a202c;
+    --header-text: #f7fafc;
+    --card-bg: rgba(45, 55, 72, 0.95);
+    --card-shadow: rgba(0,0,0,0.4);
+    --card-shadow-hover: rgba(0,0,0,0.6);
+    --skill-bg: #ed8936;
+    --skill-bg-hover: #f6ad55;
+    --accent-color: #ed8936;
+    --nav-bg: rgba(26, 32, 44, 0.95);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 5px 15px var(--card-shadow);
+    }
+    50% {
+        box-shadow: 0 10px 25px var(--card-shadow-hover), 0 0 20px var(--accent-color);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 8px 20px var(--card-shadow), 0 0 0px rgba(102, 126, 234, 0);
+    }
+    50% {
+        box-shadow: 0 20px 40px var(--card-shadow-hover), 0 0 30px rgba(102, 126, 234, 0.5), 0 0 60px rgba(102, 126, 234, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 20px var(--card-shadow), 0 0 0px rgba(102, 126, 234, 0);
+    }
+}
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    background-attachment: fixed;
+    color: var(--text-color);
+    transition: background 0.4s ease, color 0.4s ease;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+header{
+    background: linear-gradient(270deg, #0a192f, #112240, #1a365d, #112240, #0a192f);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite, slideDown 1s ease-out;
+    color: var(--header-text);
+    padding: 60px 40px 80px 40px;
+    text-align:center;
+    position: relative;
+    transition: color 0.4s ease;
+    padding-top: 100px;
+}
+
+header h1{
+    animation: fadeIn 1.2s ease-out 0.2s both;
+}
+
+header p{
+    animation: fadeIn 1.2s ease-out 0.4s both;
+}
+
+section{
+    padding: 80px 10%;
+    animation: fadeIn 1s ease-out;
+    animation-fill-mode: both;
+}
+
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
+section:nth-child(6) { animation-delay: 0.6s; }
+section:nth-child(7) { animation-delay: 0.7s; }
+
+h2{
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.4s ease;
+    font-size: 32px;
+}
+
+h2::after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent-color);
+    transition: width 0.5s ease, background 0.4s ease;
+}
+
+h2:hover::after{
+    width: 100%;
+}
+
+.card{
+    background: var(--card-bg);
+    padding: 30px;
+    margin: 20px 0;
+    border-radius:10px;
+    box-shadow:0 5px 15px var(--card-shadow);
+    transition: all 0.3s ease, background 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow:0 15px 30px var(--card-shadow-hover);
+}
+
+.skills span{
+    display:inline-block;
+    background: var(--skill-bg);
+    color:white;
+    padding:6px 12px;
+    margin:6px;
+    border-radius:20px;
+    transition: all 0.3s ease, background 0.4s ease;
+    cursor: pointer;
+}
+
+.skills span:hover{
+    background: var(--skill-bg-hover);
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Project Card Styles */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px var(--card-shadow);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--accent-color), var(--skill-bg-hover));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px var(--card-shadow-hover), 
+                0 0 30px rgba(102, 126, 234, 0.5), 
+                0 0 60px rgba(102, 126, 234, 0.3),
+                0 0 90px rgba(102, 126, 234, 0.1);
+    animation: cardGlow 2s ease-in-out infinite;
+}
+
+.project-header {
+    background: linear-gradient(135deg, var(--skill-bg), var(--skill-bg-hover));
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-header::after {
+    transform: translate(-25%, -25%);
+}
+
+.project-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: fadeIn 0.6s ease;
+}
+
+.project-card h3 {
+    color: white;
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.project-body {
+    padding: 25px;
+}
+
+.project-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    transition: color 0.4s ease;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tech-tag {
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .tech-tag {
+    transform: scale(1.1);
+    background: var(--skill-bg-hover);
+}
+
+.project-role {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.4s ease;
+}
+
+.project-role::before {
+    content: '👤';
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dark-mode-toggle {
+    position: relative;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: 2px solid var(--header-text);
+    color: var(--header-text);
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.dark-mode-toggle:hover {
+    background: var(--header-text);
+    color: var(--header-bg);
+    transform: scale(1.05);
+}
+
+/* Navigation Bar Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--card-shadow);
+    transition: all 0.4s ease;
+}
+
+nav.scrolled {
+    padding: 10px 5%;
+    box-shadow: 0 4px 20px var(--card-shadow-hover);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-logo {
+    color: var(--header-text);
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-link {
+    color: var(--header-text);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    display: block;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::before {
+    width: 60%;
+}
+
+.nav-link.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--header-text);
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--nav-bg);
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 4px 20px var(--card-shadow);
+        transition: left 0.3s ease;
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px;
+        width: 100%;
+    }
+    
+    .dark-mode-toggle {
+        position: absolute;
+        right: 70px;
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .dark-mode-toggle span:last-child {
+        display: none;
+    }
+}
+
+footer{
+    background: var(--header-bg);
+    color: var(--header-text);
+    text-align:center;
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-out 0.8s both;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav id="navbar">
+<div class="nav-container">
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+☰
+</button>
+<div class="nav-center">
+<ul class="nav-menu" id="navMenu">
+<li><a href="#home" class="nav-link">Home</a></li>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#skills" class="nav-link">Skills</a></li>
+<li><a href="#projects" class="nav-link">Projects</a></li>
+<li><a href="#internship" class="nav-link">Internship</a></li>
+<li><a href="#certifications" class="nav-link">Certifications</a></li>
+<li><a href="#activities" class="nav-link">Activities</a></li>
+</ul>
+</div>
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+<span id="modeIcon">🌙</span>
+<span id="modeText">Dark</span>
+</button>
+</div>
+</nav>
+
+<header id="home">
+<h1>Nitish Khanna S</h1>
+<p>Computer Science Engineering Student | Web Developer</p>
+<p>📧 nitishkhanna575@gmail.com | 📞 +91 8848698843</p>
+<div class="social-icons" style="margin-top: 20px;">
+<a href="https://github.com/Nitishkhanna-S" class="social-icon" title="GitHub" target="_blank">💻</a>
+<a href="https://www.linkedin.com/in/nitish-khanna-s-b92314290/" class="social-icon" title="LinkedIn" target="_blank">💼</a>
+<a href="mailto:nitishkhanna575@gmail.com" class="social-icon" title="Email">📧</a>
+<a href="tel:+918848698843" class="social-icon" title="Phone">📱</a>
+</div>
+</header>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="card" style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+<div class="icon-container" style="flex-shrink: 0;">
+👨‍💻
+</div>
+<div style="flex: 1; min-width: 250px;">
+<p style="margin: 0; line-height: 1.8;">
+Motivated Computer Science Engineering student with strong foundations in programming,
+data structures, and web development. Passionate about building real-world applications
+and learning new technologies.
+</p>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+
+<div class="card skills">
+<h3 style="margin-top: 0; color: var(--accent-color);">💻 Languages</h3>
+<span>☕ Java</span>
+<span>🐍 Python</span>
+<span>💽 C</span>
+<span>🐘 PHP</span>
+</div>
+
+<div class="card skills">
+<h3 style="margin-top: 0; color: var(--accent-color);">🌐 Web Technologies</h3>
+<span>📄 HTML</span>
+<span>🎨 CSS</span>
+<span>🗄️ MySQL</span>
+</div>
+
+<div class="card skills">
+<h3 style="margin-top: 0; color: var(--accent-color);">🔧 Tools</h3>
+<span>💻 VS Code</span>
+<span>🔧 XAMPP</span>
+<span>📊 DBMS</span>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="projects-grid">
+<div class="project-card">
+<div class="project-image-container">
+<div class="placeholder-image" style="height: 220px;">
+<img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop" alt="Task Management" class="project-image">
+</div>
+<div class="project-icon">📋</div>
+</div>
+<div class="project-header">
+<h3>Task Management System</h3>
+</div>
+<div class="project-body">
+<p class="project-description">A comprehensive task management application enabling users to create, organize, and track tasks efficiently with an intuitive interface.</p>
+<div class="project-tech">
+<span class="tech-tag">PHP</span>
+<span class="tech-tag">MySQL</span>
+<span class="tech-tag">HTML</span>
+</div>
+<div class="project-role">Frontend Developer</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image-container">
+<div class="placeholder-image" style="height: 220px;">
+<img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=500&fit=crop" alt="Security System" class="project-image">
+</div>
+<div class="project-icon">🔐</div>
+</div>
+<div class="project-header">
+<h3>Access Control System</h3>
+</div>
+<div class="project-body">
+<p class="project-description">Secure access control system with real-time SMS notifications using Twilio API for enhanced security monitoring and alerts.</p>
+<div class="project-tech">
+<span class="tech-tag">PHP</span>
+<span class="tech-tag">MySQL</span>
+<span class="tech-tag">HTML</span>
+<span class="tech-tag">CSS</span>
+<span class="tech-tag">Twilio API</span>
+</div>
+<div class="project-role">Frontend Developer</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image-container">
+<div class="placeholder-image" style="height: 220px;">
+<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=500&fit=crop" alt="Word Counter" class="project-image">
+</div>
+<div class="project-icon">📝</div>
+</div>
+<div class="project-header">
+<h3>Word Counter</h3>
+</div>
+<div class="project-body">
+<p class="project-description">An efficient word counting tool built with Java that analyzes text input and provides detailed statistics for document analysis.</p>
+<div class="project-tech">
+<span class="tech-tag">Java</span>
+<span class="tech-tag">HTML</span>
+<span class="tech-tag">CSS</span>
+</div>
+<div class="project-role">Frontend Developer</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="internship">
+<h2>Internship</h2>
+<div class="card" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+<div class="placeholder-image company-logo" style="flex-shrink: 0;">
+<span style="font-size: 2rem;">🌐</span>
+</div>
+<div style="flex: 1; min-width: 250px;">
+<h3 style="margin-top: 0;">HOSTSPACIO – Web Developer</h3>
+<p style="margin: 5px 0; color: var(--accent-color); font-weight: 600;">📅 June 30 – July 20, 2025</p>
+<p style="margin: 10px 0 0 0;">💼 Worked on Budget Buddy expense tracker using HTML, CSS, JS with interactive UI features.</p>
+</div>
+</div>
+</section>
+
+<section id="certifications">
+<h2>Certifications</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+<div class="card" style="display: flex; align-items: center; gap: 15px;">
+<div class="icon-container" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+🎓
+</div>
+<div>
+<h3 style="margin: 0; font-size: 18px;">Internet of Things</h3>
+<p style="margin: 5px 0 0 0; color: var(--text-secondary);">NPTEL Certification</p>
+</div>
+</div>
+<div class="card" style="display: flex; align-items: center; gap: 15px;">
+<div class="icon-container" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+🤖
+</div>
+<div>
+<h3 style="margin: 0; font-size: 18px;">Responsible & Safe AI</h3>
+<p style="margin: 5px 0 0 0; color: var(--text-secondary);">NPTEL Certification</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="activities">
+<h2>Activities</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+<div class="card" style="text-align: center; padding: 25px;">
+<div style="font-size: 48px; margin-bottom: 15px;">💡</div>
+<h3 style="margin: 10px 0; font-size: 18px;">Hackathon</h3>
+<p style="margin: 5px 0; color: var(--text-secondary);">SRM University</p>
+</div>
+<div class="card" style="text-align: center; padding: 25px;">
+<div style="font-size: 48px; margin-bottom: 15px;">⚡</div>
+<h3 style="margin: 10px 0; font-size: 18px;">Code Craft</h3>
+<p style="margin: 5px 0; color: var(--text-secondary);">Dr. N.G.P Institute</p>
+</div>
+<div class="card" style="text-align: center; padding: 25px;">
+<div style="font-size: 48px; margin-bottom: 15px;">🏐</div>
+<h3 style="margin: 10px 0; font-size: 18px;">Volleyball</h3>
+<p style="margin: 5px 0; color: var(--text-secondary);">Zonal Tournament</p>
+</div>
+<div class="card" style="text-align: center; padding: 25px;">
+<div style="font-size: 48px; margin-bottom: 15px;">🎯</div>
+<h3 style="margin: 10px 0; font-size: 18px;">Tech Events</h3>
+<p style="margin: 5px 0; color: var(--text-secondary);">Competitions & Quizzes</p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="social-icons" style="margin-bottom: 20px;">
+<a href="https://github.com/nitishkhanna" class="social-icon" title="GitHub" target="_blank">💻</a>
+<a href="https://linkedin.com/in/nitishkhanna" class="social-icon" title="LinkedIn" target="_blank">💼</a>
+<a href="mailto:nitishkhanna575@gmail.com" class="social-icon" title="Email">📧</a>
+<a href="tel:+918848698843" class="social-icon" title="Phone">📱</a>
+</div>
+<p>© 2026 Nitish Khanna | Portfolio</p>
+<p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">Built with 💙 using HTML, CSS & JavaScript</p>
+</footer>
+
+<script>
+// Dark Mode Toggle Functionality
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+const modeIcon = document.getElementById('modeIcon');
+const modeText = document.getElementById('modeText');
+
+// Check for saved user preference, default to light mode
+const currentMode = localStorage.getItem('darkMode');
+
+if (currentMode === 'enabled') {
+    body.classList.add('dark-mode');
+    modeIcon.textContent = '☀️';
+    modeText.textContent = 'Light';
+}
+
+// Toggle dark mode on button click
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Update icon and text
+    if (body.classList.contains('dark-mode')) {
+        modeIcon.textContent = '☀️';
+        modeText.textContent = 'Light';
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        modeIcon.textContent = '🌙';
+        modeText.textContent = 'Dark';
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
+
+// Navigation Menu Functionality
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
+const navbar = document.getElementById('navbar');
+
+// Mobile menu toggle
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+});
+
+// Close mobile menu when clicking a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.textContent = '☰';
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    // Update active link based on scroll position
+    let current = '';
+    const sections = document.querySelectorAll('section, header');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Smooth scroll for navigation links (backup for older browsers)
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            const navHeight = navbar.offsetHeight;
+            const targetPosition = targetSection.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
