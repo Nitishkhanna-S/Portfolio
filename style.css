@@ -234,7 +234,6 @@ p {
 .neon-outline {
     color: transparent;
     -webkit-text-stroke: 2px var(--neon-cyan);
-    text-stroke: 2px var(--neon-cyan);
     text-shadow: 
         0 0 10px var(--neon-cyan),
         0 0 20px var(--neon-cyan),
@@ -324,8 +323,8 @@ p {
    ==================================== */
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
     border-radius: 20px;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
@@ -359,8 +358,8 @@ p {
 /* Frosted Glass Variant */
 .glass-card-frosted {
     background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(30px) saturate(200%);
     -webkit-backdrop-filter: blur(30px) saturate(200%);
+    backdrop-filter: blur(30px) saturate(200%);
     border-radius: 24px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2),
@@ -381,8 +380,8 @@ p {
    ==================================== */
 .project-glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
+    backdrop-filter: blur(25px) saturate(180%);
     border-radius: 20px;
     border: 1px solid var(--glass-border);
     overflow: hidden;
@@ -419,6 +418,7 @@ p {
 
 .project-glass-header {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.6), rgba(118, 75, 162, 0.6));
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: var(--spacing-md);
     position: relative;
@@ -658,6 +658,7 @@ section::before {
     right: 20px;
     z-index: 1000;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 2px solid var(--glass-border);
     border-radius: 50px;
@@ -742,6 +743,7 @@ body.dark-mode .theme-toggle .moon {
     align-items: center;
     justify-content: center;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 2px solid var(--glass-border);
@@ -857,6 +859,7 @@ body.dark-mode .theme-toggle .moon {
     align-items: center;
     justify-content: center;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 50%;
     border: 2px solid var(--glass-border);
@@ -905,6 +908,7 @@ body.dark-mode .theme-toggle .moon {
     position: absolute;
     inset: 0;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(0px);
     backdrop-filter: blur(0px);
     display: flex;
     align-items: center;
@@ -914,6 +918,7 @@ body.dark-mode .theme-toggle .moon {
 }
 
 .glass-image:hover .glass-image-overlay {
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     opacity: 1;
 }
@@ -924,6 +929,7 @@ body.dark-mode .theme-toggle .moon {
     align-items: center;
     gap: 8px;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 8px 16px;
     border-radius: 50px;
@@ -1508,6 +1514,7 @@ textarea:focus {
     padding: 8px 20px;
     margin: 6px;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 50px;
@@ -1918,3 +1925,137 @@ textarea:focus {
    
    ================================== */
 
+/* Additional utility classes for inline style replacements */
+.social-icons-header {
+    margin-top: 20px;
+}
+
+.about-card-flex {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.about-icon-flex {
+    flex-shrink: 0;
+}
+
+.about-content-flex {
+    flex: 1;
+    min-width: 250px;
+}
+
+.about-text {
+    margin: 0;
+    line-height: 1.8;
+}
+
+.skills-heading {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.project-image-height {
+    height: 220px;
+}
+
+.internship-card-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.internship-logo-flex {
+    flex-shrink: 0;
+}
+
+.internship-logo-icon {
+    font-size: 2rem;
+}
+
+.internship-content-flex {
+    flex: 1;
+    min-width: 250px;
+}
+
+.internship-heading {
+    margin-top: 0;
+}
+
+.internship-date {
+    margin: 5px 0;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.internship-description {
+    margin: 10px 0 0 0;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.certification-card-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.certification-icon-iot {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.certification-icon-ai {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.certification-title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.certification-source {
+    margin: 5px 0 0 0;
+    color: var(--text-secondary);
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.activity-card-centered {
+    text-align: center;
+    padding: 25px;
+}
+
+.activity-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.activity-title {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.activity-location {
+    margin: 5px 0;
+    color: var(--text-secondary);
+}
+
+.social-icons-footer {
+    margin-bottom: 20px;
+}
+
+.footer-credit {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
