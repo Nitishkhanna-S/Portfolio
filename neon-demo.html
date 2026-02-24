@@ -28,6 +28,7 @@
         
         .demo-card {
             background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
@@ -73,6 +74,77 @@
             text-align: left;
             overflow-x: auto;
         }
+        
+        /* Utility classes for inline styles */
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+        }
+        
+        .section-bg-blue {
+            background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1), transparent);
+        }
+        
+        .section-bg-pink {
+            background: radial-gradient(circle at center, rgba(240, 147, 251, 0.1), transparent);
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title-2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-description {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .usage-card {
+            max-width: 900px;
+            text-align: left;
+            padding: 3rem;
+        }
+        
+        .usage-heading {
+            margin-top: 2rem;
+        }
+        
+        .usage-list {
+            margin-left: 1.5rem;
+            line-height: 2;
+        }
+        
+        .flex-container-spaced {
+            margin-top: 2rem;
+        }
+        
+        .info-box-spaced {
+            margin-top: 3rem;
+        }
+        
+        .footer-title {
+            font-size: 3rem;
+        }
+        
+        .footer-subtitle {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-button {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
     </style>
 </head>
 <body>
@@ -84,10 +156,10 @@
 
     <!-- HERO SECTION -->
     <section class="demo-section">
-        <h1 class="neon-rainbow" style="font-size: 4rem; margin-bottom: 1rem;">
+        <h1 class="neon-rainbow hero-title">
             Neon Text Effects
         </h1>
-        <p class="neon-subtle" style="font-size: 1.5rem;">
+        <p class="neon-subtle hero-subtitle">
             ✨ Click the moon/sun icon to toggle dark mode ✨
         </p>
         
@@ -102,8 +174,8 @@
     </section>
 
     <!-- NEON EFFECTS SHOWCASE -->
-    <section class="demo-section" style="background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1), transparent);">
-        <h2 class="neon-glow" style="font-size: 3rem; margin-bottom: 3rem;">
+    <section class="demo-section section-bg-blue">
+        <h2 class="neon-glow section-title">
             All Neon Effects
         </h2>
         
@@ -115,7 +187,7 @@
                 <div class="code-snippet">
                     class="neon-glow"
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <p class="demo-description">
                     Flickering blue/cyan glow effect with multiple shadow layers
                 </p>
             </div>
@@ -127,7 +199,7 @@
                 <div class="code-snippet">
                     class="neon-purple"
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <p class="demo-description">
                     Pulsating purple glow with smooth breathing effect
                 </p>
             </div>
@@ -139,7 +211,7 @@
                 <div class="code-snippet">
                     class="neon-pink"
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <p class="demo-description">
                     Pink neon with fast flickering animation
                 </p>
             </div>
@@ -151,7 +223,7 @@
                 <div class="code-snippet">
                     class="neon-rainbow"
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <p class="demo-description">
                     Animated gradient with multi-color glow shifting
                 </p>
             </div>
@@ -163,7 +235,7 @@
                 <div class="code-snippet">
                     class="neon-outline"
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <p class="demo-description">
                     Transparent fill with glowing stroke outline
                 </p>
             </div>
@@ -175,7 +247,7 @@
                 <div class="code-snippet">
                     class="neon-subtle"
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <p class="demo-description">
                     Soft glow effect perfect for body text
                 </p>
             </div>
@@ -184,11 +256,11 @@
 
     <!-- USAGE EXAMPLES -->
     <section class="demo-section">
-        <h2 class="neon-glow" style="font-size: 3rem; margin-bottom: 2rem;">
+        <h2 class="neon-glow section-title-2">
             How to Use
         </h2>
         
-        <div class="glass-card" style="max-width: 900px; text-align: left; padding: 3rem;">
+        <div class="glass-card usage-card">
             <h3 class="neon-purple">Adding Neon Text Effects</h3>
             <p>Simply add the neon class to any heading or text element:</p>
             
@@ -201,7 +273,7 @@
                 &lt;div class="neon-outline"&gt;Outline effect&lt;/div&gt;
             </div>
 
-            <h3 class="neon-purple" style="margin-top: 2rem;">Dark Mode Toggle</h3>
+            <h3 class="neon-purple usage-heading">Dark Mode Toggle</h3>
             <p>The theme toggle button automatically saves your preference:</p>
             
             <div class="code-snippet">
@@ -211,15 +283,15 @@
                 &lt;/button&gt;
             </div>
 
-            <h3 class="neon-purple" style="margin-top: 2rem;">Available Animations</h3>
-            <ul style="margin-left: 1.5rem; line-height: 2;">
+            <h3 class="neon-purple usage-heading">Available Animations</h3>
+            <ul class="usage-list">
                 <li><strong>neonFlicker</strong> - Realistic flicker effect</li>
                 <li><strong>neonPulse</strong> - Smooth pulsating glow</li>
                 <li><strong>neonBlink</strong> - Subtle blinking</li>
                 <li><strong>rainbowShift</strong> - Gradient color shift</li>
             </ul>
 
-            <h3 class="neon-purple" style="margin-top: 2rem;">Customization</h3>
+            <h3 class="neon-purple usage-heading">Customization</h3>
             <p>Modify the neon colors in CSS variables:</p>
             
             <div class="code-snippet">
@@ -234,12 +306,12 @@
     </section>
 
     <!-- COMBINATION EXAMPLES -->
-    <section class="demo-section" style="background: radial-gradient(circle at center, rgba(240, 147, 251, 0.1), transparent);">
-        <h2 class="neon-pink" style="font-size: 3rem; margin-bottom: 2rem;">
+    <section class="demo-section section-bg-pink">
+        <h2 class="neon-pink section-title-2">
             Combining Effects
         </h2>
         
-        <div class="flex-container" style="margin-top: 2rem;">
+        <div class="flex-container flex-container-spaced">
             <div class="flex-item glass-card tilt-card">
                 <h2 class="neon-glow">Portfolio</h2>
                 <p class="neon-subtle">Showcase your work with glowing titles</p>
@@ -256,9 +328,9 @@
             </div>
         </div>
         
-        <div class="info-box" style="margin-top: 3rem;">
+        <div class="info-box info-box-spaced">
             <h3>💡 Pro Tips</h3>
-            <ul style="margin-left: 1.5rem; line-height: 2;">
+            <ul class="usage-list">
                 <li>Use <strong>neon-glow</strong> for main headings and hero titles</li>
                 <li>Use <strong>neon-subtle</strong> for body text and descriptions</li>
                 <li>Use <strong>neon-rainbow</strong> sparingly for maximum impact</li>
@@ -271,13 +343,13 @@
 
     <!-- FOOTER -->
     <section class="demo-section text-center">
-        <h2 class="neon-outline" style="font-size: 3rem;">
+        <h2 class="neon-outline footer-title">
             Ready to Glow? ✨
         </h2>
-        <p class="neon-subtle" style="font-size: 1.2rem; margin-top: 1rem;">
+        <p class="neon-subtle footer-subtitle">
             All effects are production-ready and optimized for performance
         </p>
-        <button class="gradient-button magnetic ripple tap-scale" style="margin-top: 2rem; font-size: 1.1rem; padding: 16px 40px;">
+        <button class="gradient-button magnetic ripple tap-scale footer-button">
             Start Building
         </button>
     </section>
